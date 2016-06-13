@@ -1,0 +1,23 @@
+###
+## Events published by the S7 protocol analyzer plugin
+## Author: Gyorgy Miru
+## Date: 2015.11.04.
+## Version: 0.4
+
+# Information about regular S7 packets
+event siemenss7_packet%(c: connection, msgtype: count, functype: count, errno: count%);
+# Information about UserData S7 packets
+event siemenss7_ud_packet%(c: connection, msgtype: count, functionmode: count, functiontype: count, subfunction: count, errno: count%);
+
+# Information about the underlying iso-cotp protocol
+event iso_cotp_packet%(c: connection, msg: string, cdt: count%);
+
+# variable values read from or written to the PLC
+event siemenss7_read_data_unsigned%(c: connection, area: count, db: count, s7type: count, address: count, data: count%);
+event siemenss7_read_data_signed%(c: connection, area: count, db: count, s7type: count, address: count, data: int%);
+event siemenss7_read_data_real%(c: connection, area: count, db: count, s7type: count, address: count, data: double%);
+
+event siemenss7_write_data_unsigned%(c: connection, area: count, db: count, s7type: count, address: count, data: count%);
+event siemenss7_write_data_signed%(c: connection, area: count, db: count, s7type: count, address: count, data: int%);
+event siemenss7_write_data_real%(c: connection, area: count, db: count, s7type: count, address: count, data: double%);
+
